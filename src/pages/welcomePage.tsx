@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Header} from './../';
+import {Header, LoginForm} from './../';
 
 interface Props{
 
@@ -10,8 +10,11 @@ function WelcomePage(props:Props){
         <>
             <ExternalWrapper>
                 <Header/>
-
-
+                <InnerWrapper>
+                    <FormTitle>Welcome Back</FormTitle>
+                    <LoginForm/>
+                </InnerWrapper>
+                
 
 
 
@@ -19,6 +22,20 @@ function WelcomePage(props:Props){
         </>
     )
 }
+
+const FormTitle = styled.h1`
+    font-size: 24px;
+    font-weight: 500;
+`
+
+
+const InnerWrapper = styled.div`
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+`
 
 const ExternalWrapper = styled.div`
 
