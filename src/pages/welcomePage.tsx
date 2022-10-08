@@ -26,6 +26,7 @@ function WelcomePage(props:Props){
 const FormTitle = styled.h1`
     font-size: 24px;
     font-weight: 500;
+    margin-bottom: 50px;
 `
 
 

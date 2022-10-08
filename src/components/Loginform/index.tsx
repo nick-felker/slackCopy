@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Input, useAppDispatch} from '../..';
+import {TextInput, useAppDispatch, SubmitButton, PasswordInput} from '../..';
 import {Controller, useForm} from 'react-hook-form';
 
 interface Props{
@@ -23,23 +23,21 @@ function LoginForm(props: Props){
     return(
         <>
             <Form onSubmit={handleSubmit(authUser)}>
-                <Input
-                    type="text"
-                    placeholder="username"
-                    {...register("username")}
+                <TextInput
+                    labelText="Email Adress"
+                    type="email"
+                    placeholder="example@mail.ru"
+                    {...register("email")}
                 />
-                <Input
-                    type="text"
-                    placeholder="email"
-                    {...register("username")}
-                />
-                <Input
-                    type="text"
+                <PasswordInput
+                    labelText="Password"
+                    type="password"
                     placeholder="password"
-                    {...register("username")}
+                    {...register("password")}
                 />
-                <input type={'submit'}/>
+                <SubmitButton text="Login" bgColor="#5736ff" textColor="white" />
             </Form>
+           
         </>
     )
 }

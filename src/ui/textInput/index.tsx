@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import {useState} from 'react';
 
 
 
 interface Props{
+    labelText?: string;
     placeholder: string;
     type: string;
     error?: string;
@@ -17,13 +18,20 @@ interface Props{
 
 
 
-const Input = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => (
+const TextInput = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => (
+
+
     <>
+        <RootLabel>{props.labelText}</RootLabel>
         <Root {...props} ref={ref}/>
     </>
 )); 
 
 
+
+const RootLabel = styled.label`
+    padding-left: 10px;
+`
 interface RootProps{
     error?: string;
     bgColor?: string;
@@ -33,7 +41,6 @@ interface RootProps{
 
 const Root = styled.input<RootProps>`
     z-index: 3;
-    font-family: Gilroy;
     background: #F2F3F4;
     outline: none;
     border: ${props=> props.error === 'error' ? '1px solid red' : props.error === 'ok' ? '1px solid #17BC77' : '1px solid white'};
@@ -45,5 +52,10 @@ const Root = styled.input<RootProps>`
     }
     border-radius: 10px;
     width: 280px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    :last-child(){
+        margin-bottom: 0px;
+    }
 `
-export default Input;
+export default TextInput;
