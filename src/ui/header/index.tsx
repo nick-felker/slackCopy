@@ -10,7 +10,7 @@ function Header(props:Props){
     return(
         <>
             <ExternalWrapper>
-                <Title>Smack</Title>
+                <Title>Smart talk</Title>
                 <DoUserRegisterStatus>user not auth</DoUserRegisterStatus>
             </ExternalWrapper>
         </>
