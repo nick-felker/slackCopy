@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useState, useRef} from 'react';
+import {useState, useRef, RefAttributes} from 'react';
 
 
 
@@ -17,7 +17,7 @@ interface Props{
 }
 
 
-const PasswordInput = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => (
+const RootInput = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => (
     <>
         <RootLabel>{props.labelText}</RootLabel>
         <Root {...props} ref={ref}/>    
@@ -27,10 +27,13 @@ const PasswordInput = React.forwardRef<HTMLInputElement, Props>((props: Props, r
 
 
 
-// function PasswordInput(props:any){
-//         const rootRef = useRef<HTMLInputElement| undefined>();
-//         return <RootInput ref={rootRef} props={props}/>
-// }
+function PasswordInput(props: Props){
+        return(
+            <>
+                <RootInput {...props}/>
+            </>
+        )
+}
 
 
 const RootLabel = styled.label`
