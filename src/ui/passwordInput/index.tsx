@@ -28,9 +28,15 @@ const RootInput = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) 
 
 
 function PasswordInput(props: Props){
+    const [passwordVisibilityFlag, setPasswordVisibilityFlag] = useState(false);
         return(
             <>
-                <RootInput {...props}/>
+                {passwordVisibilityFlag === true ? <RootInput {...props}/> : <RootInput {...props}/>}
+                <ChangePasswordVisibilityButton onClick={()=>{setPasswordVisibilityFlag(!passwordVisibilityFlag)}}>
+                    <PasswordVisibilityIcon src={
+                        passwordVisibilityFlag === true ? './images/icons/showedPassword.svg' : './images/icons/hiddenPassword.svg'
+                    }/>  
+                </ChangePasswordVisibilityButton>
             </>
         )
 }
@@ -45,6 +51,16 @@ interface RootProps{
     borderStyle?: string;
 }
 
+
+const ChangePasswordVisibilityButton = styled.button`
+    border: 1px solid red;
+    background: none;
+    cursor: pointer;
+    positition: relative;
+`
+const PasswordVisibilityIcon = styled.img`
+
+`
 
 const Root = styled.input<RootProps>`
     z-index: 3;
