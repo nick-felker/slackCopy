@@ -31,7 +31,6 @@ function LoginForm(props: Props){
                 />
                 <PasswordInput
                     labelText="Password"
-                    type="password"
                     placeholder="password"
                     {...register("password")}
                 />

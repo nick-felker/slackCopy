@@ -7,7 +7,7 @@ import {useState, useRef, RefAttributes} from 'react';
 interface Props{
     labelText?: string;
     placeholder: string;
-    type: string;
+    type?: string;
     error?: string;
     value?: string;
     onChange: any;
@@ -17,10 +17,11 @@ interface Props{
 }
 
 
+
 const RootInput = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => (
     <>
         <RootLabel>{props.labelText}</RootLabel>
-        <Root {...props} ref={ref}/>    
+        <Root type={'password'} {...props} ref={ref}/>    
     </>
 )); 
 
@@ -31,7 +32,7 @@ function PasswordInput(props: Props){
     const [passwordVisibilityFlag, setPasswordVisibilityFlag] = useState(false);
         return(
             <>
-                {passwordVisibilityFlag === true ? <RootInput {...props}/> : <RootInput {...props}/>}
+                {passwordVisibilityFlag === true ? <RootInput type='text' {...props}/> : <RootInput type='password' {...props}/>}
                 <ChangePasswordVisibilityButton onClick={()=>{setPasswordVisibilityFlag(!passwordVisibilityFlag)}}>
                     <PasswordVisibilityIcon src={
                         passwordVisibilityFlag === true ? './images/icons/showedPassword.svg' : './images/icons/hiddenPassword.svg'
@@ -53,10 +54,15 @@ interface RootProps{
 
 
 const ChangePasswordVisibilityButton = styled.button`
-    border: 1px solid red;
     background: none;
+    border: none;
+    margin-top: 2px;
+    width: 25px;
     cursor: pointer;
-    positition: relative;
+    position: relative;
+    bottom: 75px;
+    left: 230px;
+    z-index: 4;
 `
 const PasswordVisibilityIcon = styled.img`
 
