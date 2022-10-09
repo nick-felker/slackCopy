@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {TextInput, useAppDispatch, SubmitButton, PasswordInput, authUser} from '../..';
+import {TextInput, useAppDispatch, SubmitButton, PasswordInput, authUser, useAppSelector, selectUserData} from '../..';
 import {Controller, useForm, Control} from 'react-hook-form';
 import React from "react";
 
@@ -11,7 +11,7 @@ function LoginForm(props: Props){
     
 
 
-
+    const userData = useAppSelector(selectUserData);
     const dispatch = useAppDispatch();
     interface FormValues{
         email: string | undefined;
@@ -23,11 +23,14 @@ function LoginForm(props: Props){
         if(!values.email?.trim() || !values.password?.trim()){
             return;
         }
-        else{
+        if(values.email === userData.email && values.password === userData.password){
             dispatch(authUser({authFlag: true}))
-            window.location.href = "/personal";
+            window.location.href = "/personal";    
         }
-        
+        else{
+            alert("fields does not correct")
+        }
+           
         
     }
 
