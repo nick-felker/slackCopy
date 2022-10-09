@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import {useAppSelector, selectUserData, authUser, useAppDispatch} from '../../';
 
 
 interface Props{
@@ -7,20 +7,57 @@ interface Props{
 }
 
 function Header(props:Props){
+    const dispatch = useAppDispatch();
+    function logoutUser(){
+        dispatch(authUser({authFlag: false}));
+        window.location.href = "/registration";
+    }
+    
+    const userData = useAppSelector(selectUserData);
+
     return(
         <>
             <ExternalWrapper>
                 <Title>Smart talk</Title>
-                <DoUserRegisterStatus>user not auth</DoUserRegisterStatus>
+                {userData.authFlag === true ? 
+                <>
+                     <UsernameBlockWrapper>
+                        <UsernameTitle>
+                            {userData.username}
+                        </UsernameTitle>
+                        <UsernameLogout onClick={logoutUser}>
+                            logout
+                        </UsernameLogout>
+                    </UsernameBlockWrapper>
+                </>
+                :
+                null
+                }
+                
             </ExternalWrapper>
         </>
     )
 }
 
 
-const DoUserRegisterStatus = styled.p`
-    font-size: 20px;
-    font-weight: 300;
+const UsernameBlockWrapper = styled.div`
+    display: flex;
+    align-items: center;
+`
+
+const UsernameTitle = styled.p`
+    font-size: 18px;
+`
+const UsernameLogout = styled.p`
+    cursor: pointer;
+    padding: 5px;
+    :hover{
+        opacity: 0.8;
+        transition: 0.5s;
+    }
+    margin: 2px 5px 0px 5px;
+    opacity: 0.5;
+    font-size: 15px;
 `
 
 const ExternalWrapper = styled.div`
@@ -28,6 +65,7 @@ const ExternalWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid #f5f6f7;
 `
 const Title = styled.p`
     font-size: 20px;

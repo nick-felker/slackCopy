@@ -10,6 +10,7 @@ const initialState: UserInterface = {
     username: "",
     password: "",
     email: "",
+    editUserInfoFlag: false,
 }
 
 
@@ -18,9 +19,10 @@ interface AuthUserInterface{
 }
 
 interface ChangeUserDataInterface{
-    username: string;
-    password: string;
-    email: string;
+    username?: string;
+    password?: string;
+    email?: string;
+    editUserInfoFlag?: boolean;
 }
 
 export const userReducer = createSlice({

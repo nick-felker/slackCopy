@@ -20,7 +20,7 @@ interface Props{
 
 const RootInput = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => (
     <>
-        <RootLabel>{props.labelText}</RootLabel>
+        {props.labelText !== undefined ? <RootLabel>{props.labelText}</RootLabel> : null}
         <Root type={'password'} {...props} ref={ref}/>    
     </>
 )); 
