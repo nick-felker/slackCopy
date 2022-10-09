@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {TextInput, useAppDispatch, SubmitButton, PasswordInput} from '../..';
-import {Controller, useForm} from 'react-hook-form';
+import {Controller, useForm, Control} from 'react-hook-form';
+import React from "react";
 
 interface Props{
 
@@ -14,7 +15,7 @@ function LoginForm(props: Props){
         password: string;
     }
     const dispatch = useAppDispatch();
-    const {register, handleSubmit, getFieldState, getValues} = useForm<FormValues>()
+    const {handleSubmit, getFieldState, getValues, control} = useForm<FormValues>()
 
     function authUser(values: FormValues){
         console.log(values);
@@ -23,16 +24,31 @@ function LoginForm(props: Props){
     return(
         <>
             <Form onSubmit={handleSubmit(authUser)}>
-                <TextInput
-                    labelText="Email Adress"
-                    type="email"
-                    placeholder="example@mail.ru"
-                    {...register("email")}
+                <Controller
+                    control={control}
+                    name="email"
+                    render={({ field: { onChange, onBlur, value, ref } }) => (
+                        <TextInput
+                            labelText="Email Adress"
+                            type="email"
+                            placeholder="example@mail.ru"
+                            onChange={(e:React.ChangeEvent<HTMLInputElement>)=>onChange(e)}
+                            value={value || ""}
+                        />
+                      )}
                 />
-                <PasswordInput
-                    labelText="Password"
-                    placeholder="password"
-                    {...register("password")}
+                <Controller
+                    control={control}
+                    name="password"
+                    render={({ field: { onChange, onBlur, value, ref } }) => (
+                        <PasswordInput
+                            ref={ref}
+                            labelText="Password"
+                            placeholder="password"
+                            onChange={(e:React.ChangeEvent<HTMLInputElement>)=>onChange(e)}
+                            value={value || ""}
+                        />
+                      )}
                 />
                 <SubmitButton text="Login" bgColor="#5736ff" textColor="white" />
             </Form>

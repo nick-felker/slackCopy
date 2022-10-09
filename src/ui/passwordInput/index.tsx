@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Ref, RefObject } from 'react';
 import styled from 'styled-components';
 import {useState, useRef, RefAttributes} from 'react';
-
-
+import {RootState, useAppSelector, selectUserAuthFlag} from '../../';
 
 interface Props{
+    ref: any;
     labelText?: string;
     placeholder: string;
     type?: string;
@@ -26,9 +26,9 @@ const RootInput = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) 
 )); 
 
 
-
-
-function PasswordInput(props: Props){
+function PasswordInput(props:Props){
+    const allData = useAppSelector(selectUserAuthFlag);
+    console.log(allData);
     const [passwordVisibilityFlag, setPasswordVisibilityFlag] = useState(false);
         return(
             <>
