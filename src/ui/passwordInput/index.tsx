@@ -27,8 +27,6 @@ const RootInput = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) 
 
 
 function PasswordInput(props:Props){
-    const allData = useAppSelector(selectUserAuthFlag);
-    console.log(allData);
     const [passwordVisibilityFlag, setPasswordVisibilityFlag] = useState(false);
         return(
             <>
@@ -53,7 +51,7 @@ interface RootProps{
 }
 
 
-const ChangePasswordVisibilityButton = styled.button`
+const ChangePasswordVisibilityButton = styled.a`
     background: none;
     border: none;
     margin-top: 2px;

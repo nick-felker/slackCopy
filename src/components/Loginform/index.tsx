@@ -10,15 +10,17 @@ interface Props{
 function LoginForm(props: Props){
     
     interface FormValues{
-        username: string;
-        email: string;
-        password: string;
+        email: string | undefined;
+        password: string | undefined;
     }
     const dispatch = useAppDispatch();
     const {handleSubmit, getFieldState, getValues, control} = useForm<FormValues>()
 
     function authUser(values: FormValues){
-        console.log(values);
+        if(!values.email?.trim() || !values.password?.trim()){
+            return;
+        }
+        console.log("succes!")
     }
 
     return(
