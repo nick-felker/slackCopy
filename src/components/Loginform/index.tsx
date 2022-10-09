@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {TextInput, useAppDispatch, SubmitButton, PasswordInput} from '../..';
+import {TextInput, useAppDispatch, SubmitButton, PasswordInput, authUser} from '../..';
 import {Controller, useForm, Control} from 'react-hook-form';
 import React from "react";
 
@@ -9,23 +9,31 @@ interface Props{
 
 function LoginForm(props: Props){
     
+
+
+
+    const dispatch = useAppDispatch();
     interface FormValues{
         email: string | undefined;
         password: string | undefined;
     }
-    const dispatch = useAppDispatch();
     const {handleSubmit, getFieldState, getValues, control} = useForm<FormValues>()
 
-    function authUser(values: FormValues){
+    function authUserFromForm(values: FormValues){
         if(!values.email?.trim() || !values.password?.trim()){
             return;
         }
-        console.log("succes!")
+        else{
+            dispatch(authUser({authFlag: true}))
+            window.location.href = "/personal";
+        }
+        
+        
     }
 
     return(
         <>
-            <Form onSubmit={handleSubmit(authUser)}>
+            <Form onSubmit={handleSubmit(authUserFromForm)}>
                 <Controller
                     control={control}
                     name="email"
