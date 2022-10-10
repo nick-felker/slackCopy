@@ -17,8 +17,14 @@ function App() {
     <>
     <Routes>
       
-      <Route path="/login" element={<LoginPage/>}/>
-      <Route path="/registration" element={<RegistrationPage/>}/>
+      <Route 
+        path="/login" 
+        element={userData.authFlag === true ? <Navigate to={"/app"} replace/> : <LoginPage/>}
+      />
+      <Route 
+        path="/registration" 
+        element={userData.authFlag === true ? <Navigate to={"/app"} replace /> : <RegistrationPage/>}
+      />
       <Route path="*" element={<NotFoundPage/>}/>
       <Route 
         path="/app" 

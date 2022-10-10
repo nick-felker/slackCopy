@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {useAppSelector, selectUserData, authUser, useAppDispatch} from '../../';
+import {useAppSelector, selectUserData, authUser, useAppDispatch, CustomLink} from '../../';
 
 
 interface Props{
@@ -18,12 +18,14 @@ function Header(props:Props){
     return(
         <>
             <ExternalWrapper>
-                <Title>Smart talk</Title>
+                <Title>
+                    <CustomLink text="Smart talk" link="/app" textColor="black" bgColor="white"/>
+                </Title>
                 {userData.authFlag === true ? 
                 <>
                      <UsernameBlockWrapper>
                         <UsernameTitle>
-                            {userData.username}
+                            <CustomLink text={userData.username} link="/personal" bgColor="white" textColor="black"/>
                         </UsernameTitle>
                         <UsernameLogout onClick={logoutUser}>
                             logout
