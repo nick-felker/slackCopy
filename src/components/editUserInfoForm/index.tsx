@@ -38,7 +38,8 @@ function EditUserInfoForm(props: Props){
                                 type="text"
                                 placeholder={userData.username}
                                 onChange={(e:React.ChangeEvent<HTMLInputElement>)=>onChange(e)}
-                                value={value || ""}
+                                value={userData.username}
+                                  
                             />
                         )}
                     />
