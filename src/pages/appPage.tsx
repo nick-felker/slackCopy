@@ -5,15 +5,51 @@ interface Props{
 
 }
 
+
+
+interface WorkspaceProps{
+    name: string;
+}
+
+function Workspace(props:WorkspaceProps){
+    return(
+        <WorkspaceWrapper>
+            <WorkspaceSquare/>
+            <WorkspaceName>{props.name}</WorkspaceName>
+        </WorkspaceWrapper>
+    )
+}
+
+const WorkspaceWrapper = styled.div`
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    :hover{
+        opacity: 0.5;
+    }
+    cursor: pointer;
+    align-items: center;
+`
+const WorkspaceSquare = styled.div`
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+`
+const WorkspaceName = styled.p`
+    position: relative;
+    bottom: 35px;
+`
+
+
 function AppPage(props:Props){
     return(
         <>
             <ExternalWrapper>
                 <WorkspacesBlock>
-                    <div>Workspa</div>
-                    <div>Workspa</div>
-                    <div>Workspa</div>
-                    <div>Workspa</div>
+                    <Workspace name="cool"/>
+                    <CreateNewWorkspaceButton><img src="./images/icons/add.svg"/></CreateNewWorkspaceButton>
                 </WorkspacesBlock>
                 <MainInfoBlock>
                     <div>MainInfoBlock</div>
@@ -34,16 +70,35 @@ function AppPage(props:Props){
 }
 
 
+const CreateNewWorkspaceButton = styled.button`
+    background: none;
+    padding: 5px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    :hover{
+        opacity: 0.5;
+        transition: 0.5s;
+    }
+`
+
+
 const ExternalWrapper = styled.div`
     display: flex;
 `
 
 const WorkspacesBlock = styled.div`
-    padding: 10px;
+    padding: 15px;
     background-color: #5736ff;
     border-right: 1px solid white;
     position: relative;
-    width: 5%;
+   
+    display: flex;
+    
+    align-items: center;
+    flex-direction: column;
 `
 
 const MainInfoBlock = styled.div`
