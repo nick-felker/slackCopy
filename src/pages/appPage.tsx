@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import {AddNewWorkSpaceWindow,
 
-
+    } from '../';
+import {useState} from 'react';
 interface Props{
 
 }
@@ -44,8 +46,12 @@ const WorkspaceName = styled.p`
 
 
 function AppPage(props:Props){
+
+    const [newWorkspaceModalWindowFlag, setNewWorkspaceModalFlag] = useState(true);
+
     return(
         <>
+            {newWorkspaceModalWindowFlag === false ? null : <AddNewWorkSpaceWindow/>}
             <ExternalWrapper>
                 <WorkspacesBlock>
                     <Workspace name="cool"/>
