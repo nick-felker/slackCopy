@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {AddNewWorkSpaceWindow,
-
+       
     } from '../';
 import {useState} from 'react';
 interface Props{

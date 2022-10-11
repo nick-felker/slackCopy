@@ -1,5 +1,8 @@
 import styled from "styled-components";
+import { 
+    AddNewWorkSpaceForm,
 
+} from '../../';
 
 interface Props{
 
@@ -11,7 +14,7 @@ function AddNewWorkspaceWindow(props:Props){
             <Overlay/>
             <ExternalWrapper>
                 <Title>Create a new workspace</Title>
-                
+                <AddNewWorkSpaceForm/>
 
             </ExternalWrapper>        
         </>
@@ -39,7 +42,7 @@ const ExternalWrapper = styled.div`
     flex-direction: column;
     z-index: 5;
     width: 500px;
-    height: 700px;
+    height: 300px;
     background-color: white;
     border-radius: 10px;
     position: absolute;
