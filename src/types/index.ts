@@ -5,3 +5,6 @@ export interface UserInterface{
     email: string;
     editUserInfoFlag: boolean;
 }
+export interface EnvironmentInterface{
+    createNewWorkSpaceFlag: boolean;
+}
