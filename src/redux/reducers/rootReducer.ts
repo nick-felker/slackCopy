@@ -1,6 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { userReducer, environmentReducer } from "./";
-
+import { userReducer} from "./";
+import {environmentReducer} from './';
 const rootReducer = combineReducers({
     user: userReducer,
     environment: environmentReducer,

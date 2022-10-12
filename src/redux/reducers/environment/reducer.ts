@@ -3,8 +3,6 @@ import { EnvironmentInterface } from "../../../";
 
 
 
-
-
 const initialState: EnvironmentInterface = {
     createNewWorkSpaceFlag: false,
 }
@@ -15,7 +13,7 @@ interface CreatingWorkSpaceFlag{
 
 
 export const environmentReducer = createSlice({
-    name: 'user',
+    name: 'environment',
     initialState,
     reducers:{
         changeCreatingWorkSpaceFlag: (state, {payload}: PayloadAction<CreatingWorkSpaceFlag>)=>{
