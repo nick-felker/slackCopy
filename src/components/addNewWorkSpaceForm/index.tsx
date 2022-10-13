@@ -39,7 +39,7 @@ function AddNewWorkSpaceForm(props: Props){
                         />
                       )}
                 />
-                <SubmitButton text="Login" bgColor="#5736ff" textColor="white" />
+                <SubmitButton text="Add" bgColor="#5736ff" textColor="white" />
             </Form>
            
         </>
