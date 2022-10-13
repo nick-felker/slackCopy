@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {useAppSelector, useAppDispatch, selectWorkspaceById, selectWorkspaces, addNewWorkspace, changeCreatingWorkSpaceFlag} from '../../';
+import {useAppSelector, useAppDispatch, selectWorkspaceById, selectWorkspaces, addNewWorkspace, changeCreatingWorkSpaceFlag, WorkSpaceInterface} from '../../';
 
 
 
@@ -7,9 +7,12 @@ import {useAppSelector, useAppDispatch, selectWorkspaceById, selectWorkspaces, a
 
 interface WorkspaceProps{
     name: string;
+    selfId: string;
+    bgColor: string;
 }
 
 function WorkspaceButton(props:WorkspaceProps){
+
     return(
         <WorkspaceWrapper>
             <WorkspaceSquare/>
@@ -50,13 +53,21 @@ interface Props{
 function WorkspacesList(props: Props){
 
     const dispatch = useAppDispatch();
+    const workspaceArray = useAppSelector(selectWorkspaces);
 
     return(
         <>
-            <WorkspacesBlock>
-                    <WorkspaceButton name="cool"/>
-                    <CreateNewWorkspaceButton onClick={()=>dispatch(changeCreatingWorkSpaceFlag({createNewWorkSpaceFlag: true}))}><img src="./images/icons/add.svg"/></CreateNewWorkspaceButton>
+            <WorkspacesBlock> 
+                {workspaceArray.map((elem: WorkSpaceInterface)=>{
+                    return(
+                        <>
+                            <WorkspaceButton bgColor={elem.bgColor} selfId={elem.selfId} name={elem.name}/>
+                        </>
+                    )
+                })}
+                <CreateNewWorkspaceButton onClick={()=>dispatch(changeCreatingWorkSpaceFlag({createNewWorkSpaceFlag: true}))}><img src="./images/icons/add.svg"/></CreateNewWorkspaceButton>
             </WorkspacesBlock>
+           
         
         </>
     )
