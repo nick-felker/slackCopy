@@ -6,6 +6,7 @@ import {AddNewWorkSpaceWindow,
        useAppSelector,
        WorkspacesList,
        ChatsList,
+       MessagesList,
     } from '../';
 import {useState} from 'react';
 interface Props{
@@ -24,12 +25,7 @@ function AppPage(props:Props){
             <ExternalWrapper>
                 <WorkspacesList/>
                 <ChatsList/>
-                <MainChatBlock>
-                    <div>MainChatBlock</div>
-                    <div>MainChatBlock</div>
-                    <div>MainChatBlock</div>
-                    <div>MainChatBlock</div>
-                </MainChatBlock>
+                <MessagesList/>
 
             </ExternalWrapper>
         </>
@@ -41,13 +37,6 @@ function AppPage(props:Props){
 
 const ExternalWrapper = styled.div`
     display: flex;
-`
-
-const MainChatBlock = styled.div`
-    padding: 10px;
-    background-color: gray;
-    position: relative;
-    width: 80%;
 `
 
 export default AppPage;
