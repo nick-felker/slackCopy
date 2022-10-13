@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {TextInput, useAppDispatch, SubmitButton, PasswordInput, authUser, useAppSelector, selectUserData} from '../..';
+import {TextInput, useAppDispatch, SubmitButton, addNewWorkspace,useAppSelector, selectUserData, changeCreatingWorkSpaceFlag} from '../..';
 import {Controller, useForm, Control} from 'react-hook-form';
 import React from "react";
 
@@ -19,9 +19,11 @@ function AddNewWorkSpaceForm(props: Props){
     const {handleSubmit, getFieldState, getValues, control} = useForm<FormValues>()
 
     function addNewWorkSpaceFromForm(values: FormValues){
-       
-        
-    }
+        if(!values.workspaceName?.trim()) return;
+        dispatch(addNewWorkspace({name: values.workspaceName, bgColor: "#4287f5"}));
+        dispatch(changeCreatingWorkSpaceFlag({createNewWorkSpaceFlag: false}));
+        return;
+    }  
 
     return(
         <>

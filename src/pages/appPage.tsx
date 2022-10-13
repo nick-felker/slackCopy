@@ -26,7 +26,6 @@ function AppPage(props:Props){
                 <WorkspacesList/>
                 <ChatsList/>
                 <MessagesList/>
-
             </ExternalWrapper>
         </>
     )
