@@ -4,3 +4,4 @@ export {default as EditUserInfoForm} from './editUserInfoForm';
 export {default as AddNewWorkSpaceWindow} from './addNewWorkSpaceWindow';
 export {default as AddNewWorkSpaceForm} from './addNewWorkSpaceForm';
 export {default as WorkspacesList} from './workspacesList';
+export {default as ChatsList} from './chatsList';

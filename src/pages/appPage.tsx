@@ -4,7 +4,8 @@ import {AddNewWorkSpaceWindow,
        changeCreatingWorkSpaceFlag,
        selectCreatingWorkSpaceFlag,
        useAppSelector,
-       WorkspacesList
+       WorkspacesList,
+       ChatsList,
     } from '../';
 import {useState} from 'react';
 interface Props{
@@ -22,12 +23,7 @@ function AppPage(props:Props){
             {creatingNewWorkSpaceFlag === true ? <AddNewWorkSpaceWindow/> : null}
             <ExternalWrapper>
                 <WorkspacesList/>
-                <MainInfoBlock>
-                    <div>MainInfoBlock</div>
-                    <div>MainInfoBlock</div>
-                    <div>MainInfoBlock</div>
-                    <div>MainInfoBlock</div>
-                </MainInfoBlock>
+                <ChatsList/>
                 <MainChatBlock>
                     <div>MainChatBlock</div>
                     <div>MainChatBlock</div>
@@ -45,17 +41,6 @@ function AppPage(props:Props){
 
 const ExternalWrapper = styled.div`
     display: flex;
-`
-
-
-const MainInfoBlock = styled.div`
-    padding: 10px 10px 20px 10px;
-    background-color: #3e103f;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 20%;
 `
 
 const MainChatBlock = styled.div`
