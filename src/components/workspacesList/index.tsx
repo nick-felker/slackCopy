@@ -15,8 +15,9 @@ function WorkspaceButton(props:WorkspaceProps){
 
     return(
         <WorkspaceWrapper>
-            <WorkspaceSquare/>
+            <WorkspaceSquare>
             <WorkspaceName>{props.name}</WorkspaceName>
+            </WorkspaceSquare>
         </WorkspaceWrapper>
     )
 }
@@ -35,13 +36,15 @@ const WorkspaceSquare = styled.div`
     background-color: #4287f5;
     width: 40px;
     height: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     border-radius: 5px;
     margin-bottom: 5px;
 `
 const WorkspaceName = styled.p`
-    position: relative;
-    color: white;
-    bottom: 35px;
+    
 `
 
 
