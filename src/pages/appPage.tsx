@@ -101,7 +101,7 @@ const ExternalWrapper = styled.div`
 
 const WorkspacesBlock = styled.div`
     padding: 15px;
-    background-color: #5736ff;
+    background-color: #3e103f;
     border-right: 1px solid white;
     position: relative;
    
@@ -113,7 +113,7 @@ const WorkspacesBlock = styled.div`
 
 const MainInfoBlock = styled.div`
     padding: 10px 10px 20px 10px;
-    background-color: #5736ff;
+    background-color: #3e103f;
     color: white;
     display: flex;
     flex-direction: column;
@@ -123,7 +123,7 @@ const MainInfoBlock = styled.div`
 
 const MainChatBlock = styled.div`
     padding: 10px;
-    background-color: red;
+    background-color: gray;
     position: relative;
     width: 80%;
 `
