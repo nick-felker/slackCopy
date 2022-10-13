@@ -36,7 +36,7 @@ const WorkspaceWrapper = styled.div`
     align-items: center;
 `
 const WorkspaceSquare = styled.div`
-    background-color: white;
+    background-color: #4287f5;
     width: 40px;
     height: 40px;
     border-radius: 5px;
@@ -44,6 +44,7 @@ const WorkspaceSquare = styled.div`
 `
 const WorkspaceName = styled.p`
     position: relative;
+    color: white;
     bottom: 35px;
 `
 
@@ -88,8 +89,9 @@ const CreateNewWorkspaceButton = styled.button`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    opacity: 0.7;
     :hover{
-        opacity: 0.5;
+        opacity: 0.3;
         transition: 0.5s;
     }
 `
@@ -102,11 +104,9 @@ const ExternalWrapper = styled.div`
 const WorkspacesBlock = styled.div`
     padding: 15px;
     background-color: #3e103f;
-    border-right: 1px solid white;
+    border-right: 1px solid rgba(215, 217, 219, .2);
     position: relative;
-   
     display: flex;
-    
     align-items: center;
     flex-direction: column;
 `
