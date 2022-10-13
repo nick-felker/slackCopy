@@ -9,17 +9,18 @@ export interface EnvironmentInterface{
     createNewWorkSpaceFlag: boolean;
 }
 
-export interface MessagesInterface{
+export interface MessageInterface{
     message: string;
     chatId: string;
 }
 
 export interface ChatsInterface{
-    messages: MessagesInterface[];
+    messages: MessageInterface[];
     WorkSpaceId: string;
 }
 
 export interface WorkSpaceInterface{
-    chats: ChatsInterface[];
+    bgColor: string;
+    name: string;
     selfId: string;
 }
