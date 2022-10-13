@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { 
     AddNewWorkSpaceForm,
-
+    useAppDispatch,
+    changeCreatingWorkSpaceFlag,
 } from '../../';
 
 interface Props{
@@ -9,9 +10,10 @@ interface Props{
 }
 
 function AddNewWorkspaceWindow(props:Props){
+    const dispatch = useAppDispatch();
     return(
         <>
-            <Overlay/>
+            <Overlay onClick={()=>dispatch(changeCreatingWorkSpaceFlag({createNewWorkSpaceFlag: false}))}/>
             <ExternalWrapper>
                 <Title>Create a new workspace</Title>
                 <AddNewWorkSpaceForm/>
@@ -28,6 +30,7 @@ const Overlay = styled.div`
     width: 100%;
     height: 100%;
     background-color: gray;
+    cursor: pointer;
     opacity: 0.7;
 `
 

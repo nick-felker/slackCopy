@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import {AddNewWorkSpaceWindow,
-       
+       useAppDispatch, 
+       changeCreatingWorkSpaceFlag,
+       selectCreatingWorkSpaceFlag,
+       useAppSelector,
     } from '../';
 import {useState} from 'react';
 interface Props{
@@ -13,7 +16,7 @@ interface WorkspaceProps{
     name: string;
 }
 
-function Workspace(props:WorkspaceProps){
+function WorkspaceButton(props:WorkspaceProps){
     return(
         <WorkspaceWrapper>
             <WorkspaceSquare/>
@@ -47,15 +50,16 @@ const WorkspaceName = styled.p`
 
 function AppPage(props:Props){
 
-    const [newWorkspaceModalWindowFlag, setNewWorkspaceModalFlag] = useState(true);
+    const dispatch = useAppDispatch();
+    const creatingNewWorkSpaceFlag:boolean = useAppSelector(selectCreatingWorkSpaceFlag);
 
     return(
         <>
-            {newWorkspaceModalWindowFlag === false ? null : <AddNewWorkSpaceWindow/>}
+            {creatingNewWorkSpaceFlag === true ? <AddNewWorkSpaceWindow/> : null}
             <ExternalWrapper>
                 <WorkspacesBlock>
-                    <Workspace name="cool"/>
-                    <CreateNewWorkspaceButton><img src="./images/icons/add.svg"/></CreateNewWorkspaceButton>
+                    <WorkspaceButton name="cool"/>
+                    <CreateNewWorkspaceButton onClick={()=>dispatch(changeCreatingWorkSpaceFlag({createNewWorkSpaceFlag: true}))}><img src="./images/icons/add.svg"/></CreateNewWorkspaceButton>
                 </WorkspacesBlock>
                 <MainInfoBlock>
                     <div>MainInfoBlock</div>
