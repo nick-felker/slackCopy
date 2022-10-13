@@ -41,10 +41,10 @@ const WorkspaceSquare = styled.div`
     text-align: center;
     justify-content: center;
     border-radius: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 `
 const WorkspaceName = styled.p`
-    
+    color: white;
 `
 
 
