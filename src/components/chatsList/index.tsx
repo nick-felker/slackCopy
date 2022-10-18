@@ -10,6 +10,7 @@ import {selectWorkspaceById,
     AddNewChannelForm,
     changeCreateNewChannelModalWindowFlag,
     selectChannelsArray,
+    changeActiveChannelId,
 } from '../../';
 
 
@@ -31,31 +32,49 @@ function ChatsList(props:Props){
         <>  
             <MainInfoBlock>
                 <WorkspacesTitle>{activeWorkspace[0] === undefined ? "" : activeWorkspace[0].name}</WorkspacesTitle>
-                <ChannelTitleContainer>
-                    <ChannelsTitle>Channels</ChannelsTitle>
-                    <AddChanelIcon onClick={()=>dispatch(changeCreateNewChannelModalWindowFlag({createNewChannelModalWindowFlag: true}))} src="./images/icons/add.svg" />
-                </ChannelTitleContainer>
-                <ChannelsList>
-                    {channelsArray.map((elem:ChannelArrayInterface)=>{
-                        if(elem.workspaceId === activeWorkspaceId){
-                            return(
-                                <>
-                                    <Channel>{elem.name}</Channel>
-                                </>
-                            )
-                        }
-                    })}
-                </ChannelsList>
+                {activeWorkspace[0] === undefined ? null : 
+                    <>
+                        <ChannelTitleContainer>
+                            <ChannelsTitle>Channels</ChannelsTitle>
+                            <AddChanelIcon onClick={()=>dispatch(changeCreateNewChannelModalWindowFlag({createNewChannelModalWindowFlag: true}))} src="./images/icons/add.svg" />
+                        </ChannelTitleContainer>
+                        <ChannelsList>
+                            {channelsArray.map((elem:ChannelArrayInterface)=>{
+                                if(elem.workspaceId === activeWorkspaceId){
+                                    return(
+                                        <>
+                                            <Channel onClick={()=>dispatch(changeActiveChannelId({activeChannelId: elem.channelId}))}>{elem.name}</Channel>
+                                        </>
+                                    )
+                                }
+                            })}
+                        </ChannelsList>
+                    
+                    </>
+                }
             </MainInfoBlock>
         </>
     )
 }
 
 const ChannelsList = styled.div`
-
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
 `
 const Channel = styled.p`
-
+    font-size: 16px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    :last-child{
+        margin-bottom: 0px;
+    }
+    cursor: pointer;
+    :hover{
+        background-color: red;
+        border-radius: 5px;
+        transition: 0.5s;
+    }
 `
 
 const ChannelTitleContainer = styled.div`

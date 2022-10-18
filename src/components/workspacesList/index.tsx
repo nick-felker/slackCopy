@@ -71,7 +71,7 @@ function WorkspacesList(props: Props){
                         </>
                     )
                 })}
-                <CreateNewWorkspaceButton onClick={()=>dispatch(changeCreatingWorkSpaceFlag({createNewWorkSpaceFlag: true}))}><img src="./images/icons/add.svg"/></CreateNewWorkspaceButton>
+                <CreateNewWorkspaceButton onClick={()=>dispatch(changeCreatingWorkSpaceFlag({createNewWorkSpaceFlag: true}))}><img alt="create new workspace" src="./images/icons/add.svg"/></CreateNewWorkspaceButton>
             </WorkspacesBlock>
            
         

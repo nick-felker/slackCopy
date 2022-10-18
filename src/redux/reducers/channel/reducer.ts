@@ -7,9 +7,9 @@ import { ChannelInterface } from "../../../";
 const initialState: ChannelInterface = {
    createNewChannelModalWindowFlag: false,
    channelArray: [
-    {workspaceId: "123", channelId: "3423", name: "3242s"}
+    
    ],
-   
+   activeChannelId: "",
 }
 
 
@@ -22,6 +22,9 @@ interface AddNewChannel{
     channelId: string;
 }
 
+interface ChangeActiveChannelId{
+    activeChannelId: string;
+}
 
 export const channelReducer = createSlice({
     name: 'channel',
@@ -33,8 +36,11 @@ export const channelReducer = createSlice({
         addNewChannel: (state, {payload}: PayloadAction<AddNewChannel>) =>{
             state.channelArray.push({name: payload.name, workspaceId: payload.workspaceId, channelId: Math.random().toString(),});
         },
+        changeActiveChannelId: (state, {payload}: PayloadAction<ChangeActiveChannelId>) =>{
+            return {...state, ...payload};
+        },
     }
 })
 
-export const {changeCreateNewChannelModalWindowFlag, addNewChannel}  = channelReducer.actions;
+export const {changeCreateNewChannelModalWindowFlag, addNewChannel, changeActiveChannelId}  = channelReducer.actions;
 export default channelReducer.reducer;

@@ -9,11 +9,6 @@ export interface EnvironmentInterface{
     createNewWorkSpaceFlag: boolean;
 }
 
-export interface MessageInterface{
-    message: string;
-    chatId: string;
-}
-
 export interface ChatsInterface{
     messages: MessageInterface[];
     WorkSpaceId: string;
@@ -35,4 +30,16 @@ interface ChannelArrayInterface{
 export interface ChannelInterface{
     createNewChannelModalWindowFlag: boolean;
     channelArray: ChannelArrayInterface[];
+    activeChannelId: string;
+}
+
+
+interface MessageInterface{
+    author: string;
+    channelId: string;
+    message: string;
+}
+
+export interface MessageArrayInterface{
+    messagesArray: MessageInterface[];
 }
