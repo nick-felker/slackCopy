@@ -12,7 +12,7 @@ interface Workspaces{
 
 const initialState: Workspaces = {
     workspaces: [
-        {bgColor: "#d7d9db", name: "cool", selfId: Math.random().toString(),}
+        
     ],
     activeWorkspaceId: "",
 }

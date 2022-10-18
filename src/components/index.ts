@@ -6,3 +6,4 @@ export {default as AddNewWorkSpaceForm} from './addNewWorkSpaceForm';
 export {default as WorkspacesList} from './workspacesList';
 export {default as ChatsList} from './chatsList';
 export {default as MessagesList} from './messagesList';
+export {default as AddNewChannelForm} from './addNewChannelForm'

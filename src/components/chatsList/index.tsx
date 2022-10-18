@@ -12,12 +12,36 @@ function ChatsList(props:Props){
     return(
         <>
             <MainInfoBlock>
-                <p>{activeWorkspace[0] === undefined ? "select workspace" : activeWorkspace[0].name}</p>
+                <WorkspacesTitle>{activeWorkspace[0] === undefined ? "" : activeWorkspace[0].name}</WorkspacesTitle>
+                <ChannelTitleContainer>
+                    <ChannelsTitle>Channels</ChannelsTitle>
+                    <AddChanelIcon src="./images/icons/add.svg" />
+                </ChannelTitleContainer>
             </MainInfoBlock>
         </>
     )
 }
 
+const ChannelTitleContainer = styled.div`
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 20px;
+`
+const AddChanelIcon = styled.img`
+    cursor: pointer;
+`
+
+const WorkspacesTitle = styled.p`
+    font-size: 24px;
+    text-transform: uppercase;
+`
+
+const ChannelsTitle = styled.p`
+    font-size: 17px;
+    opacity: 0.8;
+    
+`
 const MainInfoBlock = styled.div`
     padding: 10px 10px 20px 10px;
     background-color: #3e103f;
@@ -25,7 +49,7 @@ const MainInfoBlock = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 20%;
+    width: 15%;
 `
 
 

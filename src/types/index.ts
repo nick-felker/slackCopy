@@ -24,3 +24,6 @@ export interface WorkSpaceInterface{
     name: string;
     selfId: string;
 }
+export interface ChannelInterface{
+    createNewChannelModalWindowFlag: boolean;
+}

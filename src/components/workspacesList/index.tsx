@@ -37,10 +37,10 @@ const WorkspaceWrapper = styled.div`
 `
 const WorkspaceSquare = styled.div`
     background-color: #4287f5;
-    width: 40px;
-    height: 40px;
     display: flex;
     align-items: center;
+    padding: 5px;
+    word-break: break-word;
     text-align: center;
     justify-content: center;
     border-radius: 5px;
