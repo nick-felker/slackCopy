@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {useAppSelector, useAppDispatch, selectWorkspaceById, selectWorkspaces, addNewWorkspace, changeCreatingWorkSpaceFlag, WorkSpaceInterface} from '../../';
+import {useAppSelector, useAppDispatch, selectWorkspaceById, selectWorkspaces, addNewWorkspace, changeCreatingWorkSpaceFlag, WorkSpaceInterface, changeActiveWorkspaceId} from '../../';
 
 
 
@@ -9,12 +9,15 @@ interface WorkspaceProps{
     name: string;
     selfId: string;
     bgColor: string;
+
 }
 
 function WorkspaceButton(props:WorkspaceProps){
 
+    const dispatch = useAppDispatch();
+
     return(
-        <WorkspaceWrapper>
+        <WorkspaceWrapper onClick={()=>dispatch(changeActiveWorkspaceId({activeWorkspaceId: props.selfId}))}>
             <WorkspaceSquare>
             <WorkspaceName>{props.name}</WorkspaceName>
             </WorkspaceSquare>

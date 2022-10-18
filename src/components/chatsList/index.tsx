@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import {selectWorkspaceById, useAppSelector, useAppDispatch, changeActiveWorkspaceId, selectActiveWorkspaceId, RootState, WorkSpaceInterface} from '../../';
 
 
 interface Props{
@@ -7,13 +7,12 @@ interface Props{
 }
 
 function ChatsList(props:Props){
+    const activeWorkspaceId:string = useAppSelector(selectActiveWorkspaceId);
+    const activeWorkspace = useAppSelector((state:RootState)=>selectWorkspaceById(state, activeWorkspaceId));
     return(
         <>
             <MainInfoBlock>
-                    <div>MainInfoBlock</div>
-                    <div>MainInfoBlock</div>
-                    <div>MainInfoBlock</div>
-                    <div>MainInfoBlock</div>
+                <p>{activeWorkspace[0] === undefined ? "select workspace" : activeWorkspace[0].name}</p>
             </MainInfoBlock>
         </>
     )
