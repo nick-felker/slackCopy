@@ -1,5 +1,13 @@
 import styled from "styled-components";
-import {TextInput, useAppDispatch, SubmitButton, addNewWorkspace,useAppSelector, selectUserData, changeCreatingWorkSpaceFlag} from '../..';
+import {TextInput, 
+    useAppDispatch, 
+    SubmitButton, 
+    useAppSelector, 
+    selectUserData, 
+    changeCreateNewChannelModalWindowFlag,
+    addNewChannel,
+    selectActiveWorkspaceId,
+} from '../..';
 import {Controller, useForm, Control} from 'react-hook-form';
 import React from "react";
 
@@ -10,7 +18,7 @@ interface Props{
 function AddNewChannelForm(props: Props){
     
 
-
+    const activeWorkspaceId = useAppSelector(selectActiveWorkspaceId);
     const userData = useAppSelector(selectUserData);
     const dispatch = useAppDispatch();
     interface FormValues{
@@ -20,7 +28,9 @@ function AddNewChannelForm(props: Props){
 
     function addNewChannelFromForm(values: FormValues){
         if(!values.channelName?.trim()) return;
-        
+        dispatch(addNewChannel({name: values.channelName, workspaceId: activeWorkspaceId, channelId: Math.random().toString()}))
+        dispatch(changeCreateNewChannelModalWindowFlag({createNewChannelModalWindowFlag: false}));
+        return;
     }  
 
     return(

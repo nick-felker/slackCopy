@@ -24,6 +24,15 @@ export interface WorkSpaceInterface{
     name: string;
     selfId: string;
 }
+
+
+interface ChannelArrayInterface{
+    workspaceId: string;
+    name: string;
+    channelId: string;
+}
+
 export interface ChannelInterface{
     createNewChannelModalWindowFlag: boolean;
+    channelArray: ChannelArrayInterface[];
 }
