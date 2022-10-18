@@ -1,22 +1,52 @@
 import styled from "styled-components";
-
+import {
+    selectMessagesArray,
+    selectActiveChannelId,
+    useAppSelector,
+    AddNewMessageForm,
+} from '../../';
 
 interface Props{
 
 }
 
 function MessagesList(props:Props){
+    interface MessageInterface{
+        message: string;
+        author: string;
+        channelId: string;
+    }
+
+    const activeChannelId = useAppSelector(selectActiveChannelId);
+    const messagesList = useAppSelector(selectMessagesArray);
     return(
         <>
             <MainChatBlock>
-                    <div>MainChatBlock</div>
-                    <div>MainChatBlock</div>
-                    <div>MainChatBlock</div>
-                    <div>MainChatBlock</div>
+                    <MessageSendContainer>
+                        <AddNewMessageForm/>
+                    </MessageSendContainer>
+                   {messagesList.map((elem:MessageInterface)=>{
+                        if(elem.channelId === activeChannelId){
+                            return(
+                                <Message>
+                                    {elem.message}
+                                </Message>
+                            )
+                        }
+                   })}
             </MainChatBlock>
         </>
     )
 }
+
+const MessageSendContainer = styled.div`
+
+`
+
+const Message = styled.p`
+
+`
+
 
 const MainChatBlock = styled.div`
     padding: 10px;
