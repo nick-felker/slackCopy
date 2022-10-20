@@ -24,11 +24,12 @@ function AddNewMessageForm(props: Props){
     interface FormValues{
         messageText: string | undefined;
     }
-    const {handleSubmit, getFieldState, getValues, control} = useForm<FormValues>()
+    const {handleSubmit, getFieldState, getValues, control, reset} = useForm<FormValues>()
 
     function addNewMessageFromForm(values: FormValues){
         if(!values.messageText?.trim()) return;
         dispatch(addNewMessage({message: values.messageText, channelId: activeChannelId, author: userData.username}));
+        reset()
         return;
     }  
 
@@ -39,8 +40,8 @@ function AddNewMessageForm(props: Props){
                     control={control}
                     name="messageText"
                     render={({ field: { onChange, onBlur, value, ref } }) => (
-                        <TextInput
-                            labelText="Your message"
+                        <Input
+                            
                             type="text"
                             placeholder="print"
                             onChange={(e:React.ChangeEvent<HTMLInputElement>)=>onChange(e)}
@@ -48,16 +49,24 @@ function AddNewMessageForm(props: Props){
                         />
                       )}
                 />
-                <SubmitButton text="Add" bgColor="#5736ff" textColor="white" />
+                
             </Form>
            
         </>
     )
 }
+
+const Input = styled(TextInput)`
+    position: relative;
+    width: 94%;
+    margin: 0 auto;
+`
+
 const Form = styled.form`
     padding: 40px 0px;
     display: flex;
     flex-direction: column;
+    
 `
 
 

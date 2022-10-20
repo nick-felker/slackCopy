@@ -10,3 +10,4 @@ export {default as MessagesList} from './messagesList';
 export {default as AddNewChannelForm} from './addNewChannelForm'
 export {default as AddNewChannelWindow} from './addNewChannelWindow';
 export {default as AddNewMessageForm} from './addNewMessageForm';
+export {default as MessageElement} from './messageElement';

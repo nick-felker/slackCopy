@@ -105,6 +105,7 @@ const MainInfoBlock = styled.div`
     flex-direction: column;
     position: relative;
     width: 15%;
+    height: 100vh;
 `
 
 
